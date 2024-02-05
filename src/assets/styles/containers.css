@@ -1,0 +1,8 @@
+.item-round-border {
+  border: 0.5px solid gray;
+  border-radius: 8px;
+}
+
+.item-box {
+  padding: 1em 0.5em;
+}

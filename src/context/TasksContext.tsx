@@ -5,12 +5,16 @@ type TasksState = {
   tasks: Array<Task>;
   onNewTaskAdd: Function;
   onTaskRemoval: Function;
+  onTaskStatusChange: Function;
+  onTasksFiltering: Function;
 };
 
 const initialTasksState = {
   tasks: [],
   onNewTaskAdd: () => {},
   onTaskRemoval: () => {},
+  onTaskStatusChange: () => {},
+  onTasksFiltering: () => {},
 };
 
 export const TasksContext = createContext<TasksState>(initialTasksState);
@@ -30,9 +34,24 @@ export const TasksProvider = ({ children }: { children: ReactNode }) => {
   const onTaskRemoval = (id: string) => {
     setTasksState((prev) => {
       const changedTasks = prev.tasks.filter((task) => task.id !== id);
-      console.log("after delete", changedTasks);
       return { ...prev, tasks: changedTasks };
     });
+  };
+
+  const onTaskStatusChange = (taskId: string) => {
+    const taskToChange = tasksState.tasks.find((task) => task.id === taskId);
+    if (taskToChange) {
+      taskToChange.completed = !taskToChange.completed;
+      console.log("changed status: ", taskToChange);
+    }
+
+    setTasksState((prev) => {
+      return { ...prev, tasks: [...prev.tasks] };
+    });
+  };
+
+  const onTasksFiltering = () => {
+    console.log("filter");
   };
 
   return (
@@ -41,6 +60,8 @@ export const TasksProvider = ({ children }: { children: ReactNode }) => {
         tasks: tasksState.tasks,
         onNewTaskAdd,
         onTaskRemoval,
+        onTaskStatusChange,
+        onTasksFiltering,
       }}
     >
       {children}

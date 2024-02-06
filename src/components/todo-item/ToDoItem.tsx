@@ -44,6 +44,8 @@ export function ToDoItemNew() {
 }
 
 export function ToDoItemView({ task }: { task: Task }) {
+  const { onTaskRemoval } = useContext(TasksContext);
+
   return (
     <Row className="item-box item-round-border todo-container-y-spacing">
       <Col xs={7} md={10}>
@@ -52,7 +54,10 @@ export function ToDoItemView({ task }: { task: Task }) {
       <Col xs={5} md={2}>
         <div className="row-flex">
           <Form.Check inline name="done" type="checkbox" id="done-action" />
-          <IconActionButton variant={ActionNames.Delete} onClick={() => {}} />
+          <IconActionButton
+            variant={ActionNames.Delete}
+            onClick={() => onTaskRemoval(task.id)}
+          />
         </div>
       </Col>
     </Row>

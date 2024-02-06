@@ -4,14 +4,12 @@ import { Task } from "../dtos/Task";
 type TasksState = {
   tasks: Array<Task>;
   onNewTaskAdd: Function;
-  onTaskAddingCancel: Function;
   onTaskRemoval: Function;
 };
 
 const initialTasksState = {
   tasks: [],
   onNewTaskAdd: () => {},
-  onTaskAddingCancel: () => {},
   onTaskRemoval: () => {},
 };
 
@@ -29,16 +27,19 @@ export const TasksProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  const onTaskAddingCancel = (id: string) => {};
-
-  const onTaskRemoval = (id: string) => {};
+  const onTaskRemoval = (id: string) => {
+    setTasksState((prev) => {
+      const changedTasks = prev.tasks.filter((task) => task.id !== id);
+      console.log("after delete", changedTasks);
+      return { ...prev, tasks: changedTasks };
+    });
+  };
 
   return (
     <TasksContext.Provider
       value={{
         tasks: tasksState.tasks,
         onNewTaskAdd,
-        onTaskAddingCancel,
         onTaskRemoval,
       }}
     >

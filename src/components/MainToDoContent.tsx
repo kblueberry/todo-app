@@ -12,7 +12,7 @@ export default function MainToDoContent() {
   return (
     <>
       <Row className="app_top_actions">
-        <Col xs={12} md={12} className="column-top-spacing">
+        <Col xs={5} md={5}>
           <FilterTasksAction />
         </Col>
       </Row>

@@ -4,3 +4,9 @@ export enum ActionNames {
   ConfirmAdd,
   Delete,
 }
+
+export enum FilterCriteria {
+  All = "all",
+  Done = "done",
+  Incomplete = "incomplete",
+}

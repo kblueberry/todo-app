@@ -1,6 +1,6 @@
 import Dropdown from "react-bootstrap/Dropdown";
 
-export default function FilterTasks() {
+export default function FilterTasksAction() {
   return (
     <Dropdown>
       <Dropdown.Toggle variant="light" id="dropdown-basic">

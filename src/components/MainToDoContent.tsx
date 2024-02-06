@@ -21,7 +21,7 @@ export default function MainToDoContent() {
         <Col xs={12} md={8}>
           <AddTask onAdd={addNewTask} />
         </Col>
-        <Col xs={6} md={4}>
+        <Col xs={6} md={4} className="column-top-spacing">
           <FilterTasks />
         </Col>
       </Row>

@@ -13,7 +13,7 @@ export function ToDoItemNew() {
         <Col xs={12} md={8}>
           <Form.Control type="text" required={true} />
         </Col>
-        <Col xs={4} md={4}>
+        <Col xs={4} md={4} className="column-top-spacing">
           <IconActionButton variant={ActionNames.ConfirmAdd}></IconActionButton>{" "}
           <IconActionButton variant={ActionNames.Cancel}></IconActionButton>
         </Col>

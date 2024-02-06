@@ -6,3 +6,15 @@
 .item-box {
   padding: 1em 0.5em;
 }
+
+.row-flex {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.column-top-spacing {
+  @media screen and (max-width: 749px) {
+    margin-top: 0.5em;
+  }
+}

@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./assets/styles/containers.css";
-import "./assets/styles/general.css";
 import MainToDoContent from "./components/MainToDoContent";
 import Container from "react-bootstrap/Container";
 

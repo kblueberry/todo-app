@@ -17,7 +17,9 @@ export default function MainToDoContent() {
         </Col>
       </Row>
       <ToDoItemNew />
-      <Container>
+      <Container className="todos-container">
+        <h2>Todos</h2>
+        {!tasks.length && <i>No todos at the moment</i>}
         {tasks.map((task) => (
           <ToDoItemView task={task} />
         ))}

@@ -35,7 +35,7 @@ export function ToDoItemNew() {
 
 export function ToDoItemView({ task }: { task: Task }) {
   return (
-    <Row className="item-box item-round-border">
+    <Row className="item-box item-round-border todo-container-y-spacing">
       <Col xs={7} md={10}>
         {task.name}
       </Col>

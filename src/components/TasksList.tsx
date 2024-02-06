@@ -18,7 +18,10 @@ export default function TasksList({ tasks }: { tasks: Array<Task> }) {
           <Col xs={2} md={2}>
             <div className="row-flex">
               <Form.Check inline name="done" type="checkbox" id="done-action" />
-              <IconActionButton variant={ActionNames.Delete} />
+              <IconActionButton
+                variant={ActionNames.Delete}
+                onClick={() => {}}
+              />
             </div>
           </Col>
         </Row>

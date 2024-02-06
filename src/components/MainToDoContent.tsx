@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { Task } from "../dtos/Task";
 import TasksList from "./TasksList";
 import AddTask from "./actions/AddTask";
 import FilterTasks from "./actions/Filter";
 import { ToDoItemNew } from "./todo-item/ToDoItem";
+import { TasksContext } from "../context/TasksContext";
 
 export default function MainToDoContent() {
-  const [toDoTasks, setToDoTasks] = useState<Array<Task>>([]);
-  const [newTaskAdded, setNewTaskAdded] = useState<boolean>(false);
+  const [showAddNewTask, setShowAddNewTask] = useState<boolean>(false);
+  const { tasks } = useContext(TasksContext);
 
   const addNewTask = () => {
-    setNewTaskAdded(true);
+    setShowAddNewTask(true);
   };
 
   return (
@@ -25,8 +25,8 @@ export default function MainToDoContent() {
           <FilterTasks />
         </Col>
       </Row>
-      {newTaskAdded && <ToDoItemNew />}
-      <TasksList tasks={toDoTasks} />
+      {showAddNewTask && <ToDoItemNew />}
+      <TasksList tasks={tasks} />
     </>
   );
 }

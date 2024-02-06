@@ -34,6 +34,7 @@ export function ToDoItemNew() {
             onNewTaskAdd(new Task(taskName));
             setTaskName("");
           }}
+          disabled={!taskName}
         >
           + Add task
         </Button>

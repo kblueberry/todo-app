@@ -1,11 +1,7 @@
-.app {
-  margin: 0 20%;
-}
-
 .app_heading {
   text-align: center;
 }
 
 .app_top_actions {
-  padding: 1em 0;
+  padding: 1em 0.8em;
 }

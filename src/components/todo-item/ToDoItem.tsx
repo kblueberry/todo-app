@@ -1,20 +1,19 @@
-import Container from "react-bootstrap/Container";
-import { Task } from "../../dtos/Task";
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/Button";
-import IconActionButton from "../actions/IconActionButton";
+import { Task } from "../../dtos/Task";
 import { ActionNames } from "../../enums/Actions";
+import IconActionButton from "../actions/IconActionButton";
 
 export function ToDoItemNew() {
   return (
     <Container>
-      <Row className="app_top_actions">
+      <Row>
         <Col xs={12} md={8}>
           <Form.Control type="text" required={true} />
         </Col>
-        <Col xs={6} md={4}>
+        <Col xs={4} md={4}>
           <IconActionButton variant={ActionNames.ConfirmAdd}></IconActionButton>{" "}
           <IconActionButton variant={ActionNames.Cancel}></IconActionButton>
         </Col>

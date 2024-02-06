@@ -16,7 +16,7 @@ export default function MainToDoContent() {
   };
 
   return (
-    <div>
+    <>
       <Row className="app_top_actions">
         <Col xs={12} md={8}>
           <AddTask onAdd={addNewTask} />
@@ -27,6 +27,6 @@ export default function MainToDoContent() {
       </Row>
       {newTaskAdded && <ToDoItemNew />}
       <TasksList tasks={toDoTasks} />
-    </div>
+    </>
   );
 }

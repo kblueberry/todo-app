@@ -11,6 +11,7 @@ export default function IconActionButton({
     <Button
       variant={variant === ActionNames.ConfirmAdd ? "success" : "light"}
       className={variant === ActionNames.ConfirmAdd ? "" : "icon-light"}
+      size="sm"
     >
       <img
         src={

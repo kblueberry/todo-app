@@ -1,5 +1,6 @@
 import "../../assets/styles/buttons.css";
 import { ActionNames } from "../../enums/Actions";
+import Button from "react-bootstrap/Button";
 
 export default function IconActionButton({
   variant,
@@ -7,10 +8,9 @@ export default function IconActionButton({
   variant: ActionNames;
 }) {
   return (
-    <div
-      className={`${
-        variant === ActionNames.ConfirmAdd ? "icon-success" : ""
-      } icon-button-container`}
+    <Button
+      variant={variant === ActionNames.ConfirmAdd ? "success" : "light"}
+      className={variant === ActionNames.ConfirmAdd ? "" : "icon-light"}
     >
       <img
         src={
@@ -19,8 +19,7 @@ export default function IconActionButton({
             : "./images/cancel-svgrepo-com.svg"
         }
         alt="check-svg"
-        className="icon-button"
       ></img>
-    </div>
+    </Button>
   );
 }

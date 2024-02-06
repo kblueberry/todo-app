@@ -1,7 +1,5 @@
-.icon-success {
-  background-color: green;
-}
-
-.icon-button-container {
-  cursor: pointer;
+.icon-light,
+.icon-light:hover {
+  background-color: transparent;
+  border: none;
 }

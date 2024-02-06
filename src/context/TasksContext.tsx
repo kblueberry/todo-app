@@ -1,10 +1,8 @@
-import { ReactNode, createContext, useId, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 import { Task } from "../dtos/Task";
-import { v4 as uuidv4 } from "uuid";
 
 type TasksState = {
   tasks: Array<Task>;
-  newTaskAdded: boolean;
   onNewTaskAdd: Function;
   onTaskAddingCancel: Function;
   onTaskRemoval: Function;
@@ -12,7 +10,6 @@ type TasksState = {
 
 const initialTasksState = {
   tasks: [],
-  newTaskAdded: false,
   onNewTaskAdd: () => {},
   onTaskAddingCancel: () => {},
   onTaskRemoval: () => {},
@@ -22,16 +19,13 @@ export const TasksContext = createContext<TasksState>(initialTasksState);
 
 export const TasksProvider = ({ children }: { children: ReactNode }) => {
   const [tasksState, setTasksState] = useState<TasksState>(initialTasksState);
-  const { tasks, newTaskAdded } = tasksState;
 
-  const onNewTaskAdd = (taskName: string) => {
+  const onNewTaskAdd = (task: Task) => {
     setTasksState((prev) => {
-      const changedTasks = prev.tasks.concat([
-        { id: uuidv4(), name: taskName },
-      ]);
+      const changedTasks = prev.tasks.concat([task]);
       console.log("after add: ", changedTasks);
 
-      return { ...prev, tasks: changedTasks, newTaskAdded: true };
+      return { ...prev, tasks: changedTasks };
     });
   };
 
@@ -42,8 +36,7 @@ export const TasksProvider = ({ children }: { children: ReactNode }) => {
   return (
     <TasksContext.Provider
       value={{
-        tasks,
-        newTaskAdded,
+        tasks: tasksState.tasks,
         onNewTaskAdd,
         onTaskAddingCancel,
         onTaskRemoval,

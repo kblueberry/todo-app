@@ -19,12 +19,21 @@ export function ToDoItemNew() {
   return (
     <Row>
       <Col xs={7} md={10}>
-        <Form.Control type="text" required={true} onChange={onValueChange} />
+        <Form.Control
+          type="text"
+          placeholder="Add task to the list"
+          value={taskName}
+          required={true}
+          onChange={onValueChange}
+        />
       </Col>
       <Col xs={5} md={2}>
         <Button
           variant="success"
-          onClick={() => onNewTaskAdd(new Task(taskName))}
+          onClick={() => {
+            onNewTaskAdd(new Task(taskName));
+            setTaskName("");
+          }}
         >
           + Add task
         </Button>

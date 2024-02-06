@@ -5,8 +5,7 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { TasksContext } from "../../context/TasksContext";
 import { Task } from "../../dtos/Task";
-import { ActionNames } from "../../enums/Actions";
-import IconActionButton from "../actions/IconActionButton";
+import "../../assets/styles/buttons.css";
 
 export function ToDoItemNew() {
   const [taskName, setTaskName] = useState<string>("");
@@ -67,10 +66,14 @@ export function ToDoItemView({ task }: { task: Task }) {
               onTaskStatusChange(task.id);
             }}
           />
-          <IconActionButton
-            variant={ActionNames.Delete}
+          <Button
+            variant="light"
+            className="icon-light"
+            size="sm"
             onClick={() => onTaskRemoval(task.id)}
-          />
+          >
+            <img src="./images/cancel-svgrepo-com.svg" alt="check-svg"></img>
+          </Button>
         </div>
       </Col>
     </Row>
